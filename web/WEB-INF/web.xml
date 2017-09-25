@@ -21,9 +21,9 @@
     </servlet-mapping>
 
 
-    <!--<welcome-file-list>-->
-        <!--<welcome-file>ControllerServlet</welcome-file>-->
-    <!--</welcome-file-list>-->
+    <welcome-file-list>
+        <welcome-file>ControllerServlet</welcome-file>
+    </welcome-file-list>
     <filter>
         <filter-name>CanNotCallFilter</filter-name>
         <filter-class>filter.CanNotCallFilter</filter-class>

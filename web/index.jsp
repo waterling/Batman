@@ -16,28 +16,6 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <script>
-        function funcSuccess(data) {
-            $(".result").append(data);
-        }
-        $(document).ready(function () {
-            $("#submit").bind("click", function () {
-                var coorX = document.getElementById('coordX').value;
-                var coorY = document.getElementById('coordY').value;
-                var ran = document.getElementById('myRange').value;
-                $.ajax({
-                    url: 'ControllerServlet',
-                    type: "GET",
-                    dataType: "html",
-                    data: ({ x: coorX, y: coorY, zoom:ran}),
-                    success: funcSuccess
-                });
-            })
-
-        })
-    </script>
-
     <script src="script/script.js">
     </script>
 </head>
@@ -68,7 +46,7 @@
         <td colspan="3"></td>
         <td width="20%" rowspan="5"></td>
     </tr>
-    <%--<form method="GET" action="ControllerServlet">--%>
+    <form method="GET" action="ControllerServlet">
         <tr>
             <td align="center" id="menu1">
                 <h1 style="color: #2aa5a0">Радиус </h1>
@@ -111,7 +89,7 @@
             </td>
             <td width="30"></td>
         </tr>
-    <%--</form>--%>
+    </form>
 
     <tr>
         <td></td>
@@ -126,7 +104,7 @@
                     <td>Time</td>
                     <td>ProgrammLiveTime</td>
                 </tr>
-                <%--<tr>
+                <tr>
                     <td><%=request.getAttribute("x")%>
                     </td>
                     <td><%=request.getAttribute("y")%>
@@ -139,21 +117,10 @@
                     </td>
                     <td><%=request.getAttribute("time")%>
                     </td>
-                </tr>--%>
-
+                </tr>
             </table>
         </td>
     </tr>
-<%--
-    <tr>
-        <td>
-            <iframe src="responseTable.jsp" frameborder="0">
-                &lt;%&ndash;<jsp:include page="responseTable.jsp"/>&ndash;%&gt;
-            </iframe>
-        </td>
-    </tr>
---%>
-
 
     <tr height="20%">
         <td></td>

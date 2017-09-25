@@ -151,14 +151,12 @@ public class CheckBatman {
         return false;
     }
 
-    public String getResponse() {
-        return "<tr>" +
-                "<td>" + String.valueOf(getX / 7) + "</td>" +
-                "<td>" + String.valueOf(getY / 7) + "</td>" +
-                "<td>" + String.valueOf(getZoom) + "</td>" +
-                "<td>" + String.valueOf(check()) + "</td>" +
-                "<td>" + new Date().toString() + "</td>" +
-                "<td>" + String.valueOf(System.nanoTime() - start) + "</td>" +
-                "<tr>";
+    public void updateRequest(HttpServletRequest request) {
+        request.setAttribute("x", getX / 7);
+        request.setAttribute("y", getY / 7);
+        request.setAttribute("zoom", getZoom);
+        request.setAttribute("inBatman", check());
+        request.setAttribute("currTime", new Date().toString());
+        request.setAttribute("time", String.valueOf(System.nanoTime() - start));
     }
 }

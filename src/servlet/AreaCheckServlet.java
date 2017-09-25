@@ -30,8 +30,8 @@ public class AreaCheckServlet extends HttpServlet {
                 Integer.parseInt(request.getParameter("y")),
                 Integer.parseInt(request.getParameter("zoom")));
 
-        response.getWriter().append(checkBatman.getResponse());
-//        request.getRequestDispatcher("/responseTable.jsp").forward(request, response);
+        checkBatman.updateRequest(request);
+        request.getRequestDispatcher("/index.jsp").forward(request, response);
     }
 
     private void forbidden(HttpServletResponse response) throws IOException {
