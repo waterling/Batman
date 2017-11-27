@@ -5,6 +5,7 @@ MyFunction = function () {
     // zoom=zoom+10;
     if (canvas.getContext) {
         var ctx = canvas.getContext('2d');
+        canvas.onclick = drawDot();
         var zoom = zoom1 * 2.5;
         var plusX = (7 * 20) + 250;
         var plusY = (4 * 20) + 250;
@@ -125,6 +126,21 @@ MyFunction = function () {
 
         ctx.stroke();
     }
+};
+drawDot = function () {
+    var canvas = document.getElementById('myCanvas');
+    var ctx = canvas.getContext('2d');
+    var plusX = (7 * 20) + 250;
+    var plusY = (4 * 20) + 250;
+    var x = canvas.offsetLeft;
+    var y = canvas.offsetTop;
+    ctx.beginPath();
+    ctx.fillStyle = "rgb(255,92,90)";
+    ctx.arc(x, y, 3, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.closePath();
+    document.getElementById('coordX').value = x-plusX;
+    document.getElementById('coordY').value = y-plusY;
 };
 getCoords = function (input) {
     checkIfFull(document.getElementById('coordX'), document.getElementById('coordY'));
